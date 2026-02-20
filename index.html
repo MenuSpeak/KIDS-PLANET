@@ -1,637 +1,457 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <title>KIDS PLANET – Pre-Primary School | Play • Learn • Grow</title>
-  <!-- SEO friendly -->
-  <meta name="description" content="KIDS PLANET – Pre-Primary School in Sangli. Marathi & English medium, safe & caring environment. Admission open for Playgroup to 12th Science, Abacus & summer camp.">
-  <meta name="keywords" content="pre-primary school Sangli, kids planet, play school, abacus, vedic maths, summer camp">
-  <!-- Fonts & CSS -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&family=Fredoka:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <!-- Font Awesome 6 (free) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KIDS PLANET – Pre-Primary School | Play • Learn • Grow</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-blue: #a2d2ff;
+            --primary-pink: #ffafcc;
+            --primary-purple: #cdb4db;
+            --text-dark: #2d3436;
+            --white: #ffffff;
+            --gradient: linear-gradient(135deg, #a2d2ff 0%, #efbbff 50%, #ffafcc 100%);
+            --shadow: 0 10px 30px rgba(0,0,0,0.08);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
 
-    :root {
-      --sky: #b8e1ff;
-      --soft-pink: #ffe0f0;
-      --soft-purple: #e2c2ff;
-      --gradient-main: linear-gradient(145deg, #b8e1ff 0%, #ffd9e8 45%, #d9b8ff 100%);
-      --card-shadow: 0 20px 30px -10px rgba(157, 90, 200, 0.15), 0 8px 15px rgba(0,0,0,0.05);
-      --hover-lift: translateY(-8px);
-      --border-radius-card: 32px;
-      --border-radius-element: 28px;
-      --font-heading: 'Fredoka', 'Baloo 2', cursive;
-      --font-body: 'Poppins', sans-serif;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
 
-    body {
-      font-family: var(--font-body);
-      background: #fafcff;
-      color: #1f2937;
-      line-height: 1.5;
-      overflow-x: hidden;
-    }
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: #fffafb;
+        }
 
-    h1, h2, h3, h4 {
-      font-family: var(--font-heading);
-      font-weight: 600;
-      letter-spacing: -0.01em;
-    }
+        h1, h2, h3 { font-family: 'Fredoka', sans-serif; }
 
-    /* sticky transparent header */
-    .sticky-header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(255, 255, 255, 0.72);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.02);
-      padding: 0.8rem 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      border-bottom: 1px solid rgba(255,255,255,0.6);
-    }
+        /* --- Navigation --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.2rem 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: var(--transition);
+        }
 
-    .logo-area {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
+        nav.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 0.8rem 8%;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(10px);
+        }
 
-    .logo-icon {
-      font-size: 2.2rem;
-      background: var(--gradient-main);
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 10px 18px rgba(255, 150, 200, 0.3);
-    }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #6c5ce7;
+            text-decoration: none;
+        }
 
-    .logo-text {
-      font-size: 1.5rem;
-      font-weight: 700;
-      background: linear-gradient(130deg, #4b2b7a, #b13e7c);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
 
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      font-weight: 500;
-      flex-wrap: wrap;
-    }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: var(--transition);
+        }
 
-    .nav-links a {
-      text-decoration: none;
-      color: #1f1f3a;
-      font-size: 1rem;
-      transition: 0.2s;
-      border-radius: 50px;
-      padding: 0.3rem 0.8rem;
-    }
+        .nav-links a:hover { color: #ffafcc; }
 
-    .nav-links a:hover {
-      background: rgba(255,255,255,0.5);
-      color: #a13e7c;
-    }
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh;
+            background: var(--gradient);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+        }
 
-    /* floating whatsapp */
-    .whatsapp-float {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      background: #25D366;
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.2rem;
-      color: white;
-      box-shadow: 0 15px 25px rgba(37, 211, 102, 0.3);
-      z-index: 99;
-      transition: 0.3s;
-      text-decoration: none;
-    }
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
 
-    .whatsapp-float:hover {
-      transform: scale(1.1) rotate(3deg);
-      background: #20b859;
-    }
+        .hero h1 {
+            font-size: clamp(3.5rem, 10vw, 6rem);
+            color: var(--white);
+            text-shadow: 4px 4px 0px rgba(0,0,0,0.1);
+            margin-bottom: 0.5rem;
+        }
 
-    /* soft floating shapes */
-    .shape-bg {
-      position: absolute;
-      inset: 0;
-      overflow: hidden;
-      pointer-events: none;
-    }
+        .hero h2 {
+            font-size: 1.5rem;
+            color: #fff;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 25px;
+            border-radius: 50px;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(5px);
+        }
 
-    .shape {
-      position: absolute;
-      background: rgba(255,255,240,0.2);
-      border-radius: 60% 40% 50% 50%;
-      filter: blur(40px);
-    }
+        .hero p {
+            font-size: 1.8rem;
+            color: var(--white);
+            font-weight: 600;
+            margin-bottom: 2.5rem;
+            letter-spacing: 3px;
+        }
 
-    /* reusable */
-    section {
-      padding: 4rem 2rem;
-      position: relative;
-    }
+        .btn-group { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
 
-    .container {
-      max-width: 1280px;
-      margin: 0 auto;
-    }
+        .btn {
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-    .btn-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 2rem;
-    }
+        .btn-admission { background: #fff; color: #ffafcc; box-shadow: var(--shadow); }
+        .btn-call { background: #6c5ce7; color: #fff; }
+        .btn-wa { background: #25D366; color: #fff; }
 
-    .btn {
-      padding: 0.9rem 2.2rem;
-      border-radius: 60px;
-      font-weight: 600;
-      font-size: 1.1rem;
-      border: none;
-      background: white;
-      box-shadow: 0 10px 18px rgba(0,0,0,0.05);
-      cursor: pointer;
-      transition: 0.2s;
-      text-decoration: none;
-      display: inline-block;
-      color: #1f2937;
-      backdrop-filter: blur(4px);
-      font-family: var(--font-body);
-    }
+        .btn:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
 
-    .btn-primary {
-      background: #f6579b;
-      color: white;
-      box-shadow: 0 15px 25px #f6579b60;
-    }
-    .btn-primary:hover {
-      background: #e44c8b;
-      transform: scale(1.02);
-    }
-    .btn-outline {
-      background: rgba(255,255,255,0.8);
-      border: 1px solid white;
-    }
-    .btn-outline:hover {
-      background: white;
-      transform: translateY(-3px);
-    }
+        /* --- Sections --- */
+        .section-padding { padding: 100px 10%; }
+        .section-title { text-align: center; margin-bottom: 60px; font-size: 2.8rem; color: #6c5ce7; }
 
-    /* hero */
-    .hero {
-      min-height: 85vh;
-      display: flex;
-      align-items: center;
-      background: var(--gradient-main);
-      border-bottom-left-radius: 50px;
-      border-bottom-right-radius: 50px;
-      box-shadow: 0 25px 35px -15px #c7a3ff;
-      margin-bottom: 1rem;
-      position: relative;
-    }
+        /* --- About & Features --- */
+        .about-container { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .features-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
 
-    .hero-content {
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: center;
-      padding: 2rem 1rem;
-    }
+        .feature-card {
+            background: #fff;
+            padding: 25px;
+            border-radius: 25px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
 
-    .hero h1 {
-      font-size: 4.5rem;
-      font-weight: 800;
-      line-height: 1.1;
-      text-shadow: 2px 4px 10px rgba(255,255,255,0.6);
-    }
-    .hero-sub {
-      font-size: 2rem;
-      font-weight: 400;
-    }
-    .tagline {
-      font-size: 2.6rem;
-      font-family: var(--font-heading);
-      font-weight: 600;
-      background: rgba(255,255,255,0.3);
-      display: inline-block;
-      padding: 0.4rem 2rem;
-      border-radius: 100px;
-      backdrop-filter: blur(4px);
-      margin: 1rem 0;
-    }
+        .feature-card:hover { transform: translateY(-10px); background: #fffafb; }
+        .feature-card i { font-size: 2.5rem; margin-bottom: 15px; color: #ffafcc; }
 
-    /* cards general */
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 2rem;
-      margin-top: 2.5rem;
-    }
+        /* --- Programs --- */
+        .programs { background: #fdfbff; }
+        .program-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
 
-    .feature-card, .program-card, .gallery-item {
-      background: white;
-      border-radius: var(--border-radius-card);
-      padding: 2rem 1.5rem;
-      box-shadow: var(--card-shadow);
-      transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
-      border: 1px solid rgba(255,255,255,0.7);
-      backdrop-filter: blur(2px);
-      text-align: center;
-    }
+        .program-card {
+            background: white;
+            padding: 40px;
+            border-radius: 40px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            border-bottom: 10px solid var(--primary-blue);
+            transition: var(--transition);
+        }
 
-    .feature-card:hover, .program-card:hover {
-      transform: var(--hover-lift);
-      box-shadow: 0 30px 40px -15px #b88bff;
-    }
+        .program-card:hover { transform: scale(1.03); }
+        .program-card ul { list-style: none; margin-top: 20px; }
+        .program-card li { margin: 12px 0; font-weight: 500; font-size: 1.1rem; }
 
-    .feature-icon {
-      font-size: 2.8rem;
-      background: #f0e4ff;
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 1.2rem;
-      color: #aa4e9c;
-    }
+        /* --- Gallery --- */
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .gallery-item { height: 250px; border-radius: 30px; overflow: hidden; position: relative; box-shadow: var(--shadow); }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition); cursor: pointer; }
+        .gallery-item img:hover { transform: scale(1.15); }
 
-    .why-choose-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: center;
-    }
-    @media (max-width: 700px) {
-      .why-choose-grid {
-        grid-template-columns: 1fr;
-      }
-    }
+        /* --- Contact & WhatsApp Form --- */
+        .contact-container { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+        .enquiry-form { background: #fff; padding: 40px; border-radius: 40px; box-shadow: var(--shadow); border: 2px solid #f0f0f0; }
+        
+        .form-group { margin-bottom: 20px; }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 15px 25px;
+            border-radius: 50px;
+            border: 2px solid #eee;
+            outline: none;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
 
-    /* programs extra */
-    .program-card {
-      background: white;
-      text-align: left;
-      padding: 1.8rem;
-    }
-    .program-card ul {
-      list-style: none;
-      margin-top: 1rem;
-    }
-    .program-card li {
-      padding: 0.35rem 0;
-      border-bottom: 1px dashed #f0d0ff;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-    .program-card i {
-      color: #db7ec9;
-      width: 1.5rem;
-    }
+        .form-group input:focus { border-color: var(--primary-purple); }
 
-    /* gallery */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
-    }
-    .gallery-item {
-      padding: 0;
-      overflow: hidden;
-      border-radius: 45px;
-      aspect-ratio: 1/1;
-    }
-    .gallery-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.4s ease;
-      display: block;
-    }
-    .gallery-item:hover img {
-      transform: scale(1.1);
-    }
-    /* lightbox simple */
-    .lightbox {
-      display: none;
-      position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.8);
-      z-index: 1000;
-      justify-content: center;
-      align-items: center;
-    }
-    .lightbox:target {
-      display: flex;
-    }
-    .lightbox img {
-      max-width: 80%;
-      max-height: 80%;
-      border-radius: 40px;
-      box-shadow: 0 30px 50px #00000060;
-    }
-    .close-lightbox {
-      position: absolute;
-      top: 30px; right: 40px;
-      font-size: 3rem;
-      color: white;
-      text-decoration: none;
-    }
+        .contact-info h3 { font-size: 2rem; margin-bottom: 20px; color: #6c5ce7; }
+        .contact-info p { margin-bottom: 15px; display: flex; align-items: center; gap: 10px; font-size: 1.1rem; }
+        
+        .map-box {
+            width: 100%;
+            height: 300px;
+            background: #f0f0f0;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 30px;
+            overflow: hidden;
+            border: 5px solid #fff;
+            box-shadow: var(--shadow);
+        }
 
-    /* contact & map */
-    .contact-map-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2.5rem;
-    }
-    @media (max-width: 700px) {
-      .contact-map-grid {
-        grid-template-columns: 1fr;
-      }
-    }
+        /* --- Floating Elements --- */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 35px;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+            z-index: 1000;
+            text-decoration: none;
+            transition: var(--transition);
+        }
 
-    .enquiry-form input, .enquiry-form select, .enquiry-form button {
-      width: 100%;
-      padding: 1rem 1.2rem;
-      border-radius: 60px;
-      border: 1px solid #e6d0ff;
-      font-family: var(--font-body);
-      margin-bottom: 1rem;
-      background: rgba(255,255,255,0.7);
-      font-size: 1rem;
-    }
-    .enquiry-form button {
-      background: #f6579b;
-      color: white;
-      font-weight: 700;
-      border: none;
-      transition: 0.2s;
-    }
-    .enquiry-form button:hover {
-      background: #d64282;
-      transform: scale(1.02);
-    }
-    .map-placeholder {
-      background: #dcd0ff;
-      border-radius: 60px;
-      height: 260px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-      color: #38385c;
-      box-shadow: inset 0 -2px 15px #ffffff50, var(--card-shadow);
-    }
+        .whatsapp-float:hover { transform: scale(1.1) rotate(10deg); }
 
-    footer {
-      background: #1f1f3a;
-      color: #ddd9ff;
-      border-radius: 60px 60px 0 0;
-      padding: 3rem 2rem 1.5rem;
-      margin-top: 2rem;
-    }
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      justify-content: center;
-      margin: 1.5rem 0;
-    }
-    .footer-links a {
-      color: white;
-      text-decoration: none;
-      font-weight: 400;
-    }
-    .copyright {
-      text-align: center;
-      font-size: 0.9rem;
-      opacity: 0.7;
-    }
+        /* --- Footer --- */
+        footer { background: #2d3436; color: white; padding: 60px 10% 30px; text-align: center; }
+        .footer-links { margin: 20px 0; display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
+        .footer-links a { color: #fff; text-decoration: none; opacity: 0.8; }
+        .copyright { margin-top: 40px; font-size: 0.9rem; opacity: 0.5; border-top: 1px solid #444; padding-top: 20px; }
 
-    /* responsiveness tweaks */
-    @media (max-width: 500px) {
-      .hero h1 { font-size: 3rem; }
-      .tagline { font-size: 1.8rem; }
-      .sticky-header { padding: 0.8rem 1rem; }
-      .nav-links { gap: 0.6rem; }
-    }
-  </style>
+        /* --- Mobile Responsive --- */
+        @media (max-width: 968px) {
+            .about-container, .contact-container { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            .hero h1 { font-size: 3.8rem; }
+            .section-padding { padding: 80px 5%; }
+        }
+    </style>
 </head>
 <body>
-  <!-- floating WhatsApp button -->
-  <a href="https://wa.me/917588627645" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-    <i class="fab fa-whatsapp"></i>
-  </a>
 
-  <!-- Sticky header -->
-  <header class="sticky-header">
-    <div class="logo-area">
-      <div class="logo-icon"><i class="fas fa-child" style="color:#a6528b;"></i></div>
-      <span class="logo-text">KIDS PLANET</span>
-    </div>
-    <nav class="nav-links">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#programs">Programs</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#contact">Contact</a>
+    <nav id="navbar">
+        <a href="#" class="logo">KIDS PLANET</a>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#programs">Programs</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
     </nav>
-  </header>
 
-  <!-- HERO SECTION -->
-  <section id="home" class="hero">
-    <div class="shape-bg">
-      <div class="shape" style="top:5%; left:-5%; width:400px; height:400px; background:#fbc0e6;"></div>
-      <div class="shape" style="bottom:0; right:-3%; width:500px; height:500px; background:#b3a0ff;"></div>
-    </div>
-    <div class="hero-content container">
-      <h1>KIDS PLANET</h1>
-      <div class="hero-sub">Pre-Primary School</div>
-      <div class="tagline">Play • Learn • Grow</div>
-      <div class="btn-group">
-        <a href="#contact" class="btn btn-primary">✨ Admission Open</a>
-        <a href="tel:7588627645" class="btn btn-outline"><i class="fas fa-phone-alt"></i> Call Now</a>
-        <a href="https://wa.me/917588627645" class="btn btn-outline" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT + WHY CHOOSE US -->
-  <section id="about">
-    <div class="container why-choose-grid">
-      <!-- Left side intro -->
-      <div>
-        <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Where little stars shine ✨</h2>
-        <p style="font-size: 1.2rem; background: #f8f0ff; padding: 2rem; border-radius: 50px;">KIDS PLANET is a safe, caring and experienced pre-primary school in Sangli. We focus on holistic child development through play-based learning, with Marathi & English medium. Our warm environment ensures personal attention, qualified staff, and a love for learning.</p>
-      </div>
-      <!-- Right side 6 feature cards -->
-      <div>
-        <div class="card-grid">
-          <div class="feature-card"><div class="feature-icon"><i class="fas fa-language"></i></div><h3>Marathi & English</h3><p>Dual medium for strong language skills.</p></div>
-          <div class="feature-card"><div class="feature-icon"><i class="fas fa-user-graduate"></i></div><h3>Qualified Staff</h3><p>Experienced & caring teachers.</p></div>
-          <div class="feature-card"><div class="feature-icon"><i class="fas fa-heart"></i></div><h3>Personal Attention</h3><p>Small batches, individual care.</p></div>
-          <div class="feature-card"><div class="feature-icon"><i class="fas fa-cubes"></i></div><h3>Activity Center</h3><p>Sensory & creative play indoors.</p></div>
-          <div class="feature-card"><div class="feature-icon"><i class="fas fa-tree"></i></div><h3>Playground</h3><p>Outdoor fun & sports.</p></div>
-          <div class="feature-card"><div class="feature-icon"><i class="fas fa-shield-alt"></i></div><h3>Safe Environment</h3><p>Secure & hygienic campus.</p></div>
+    <section class="hero" id="home">
+        <h2>Pre-Primary School</h2>
+        <h1>KIDS PLANET</h1>
+        <p>Play • Learn • Grow</p>
+        <div class="btn-group">
+            <a href="#contact" class="btn btn-admission">Admission Open</a>
+            <a href="tel:7588627645" class="btn btn-call"><i class="fa fa-phone"></i> Call Now</a>
+            <a href="https://wa.me/917588627645" class="btn btn-wa"><i class="fab fa-whatsapp"></i> WhatsApp</a>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- PROGRAMS SECTION (Premium cards) -->
-  <section id="programs" style="background: #f7f2ff; border-radius: 70px 70px 30px 30px;">
-    <div class="container">
-      <h2 style="font-size: 3rem; text-align: center; margin-bottom: 1rem;">Our Programs 🌈</h2>
-      <div class="card-grid">
-        <!-- Card A: Pre-Primary -->
-        <div class="program-card">
-          <i class="fas fa-puzzle-piece" style="font-size: 2.8rem; color: #cf79c2;"></i>
-          <h3 style="font-size: 2rem;">Pre-Primary</h3>
-          <ul>
-            <li><i class="fas fa-baby"></i> Play Group (2-3 yrs)</li>
-            <li><i class="fas fa-child"></i> Nursery (3-4 yrs)</li>
-            <li><i class="fas fa-smile"></i> Kindergarten (4-6 yrs)</li>
-          </ul>
+    <section class="section-padding" id="about">
+        <div class="about-container">
+            <div>
+                <h2 class="section-title" style="text-align: left; margin-bottom: 20px;">Safe & Happy Learning</h2>
+                <p>Welcome to <strong>Kids Planet – Pre-Primary School</strong>. We believe every child is a unique star. Our environment is designed to be safe, caring, and full of joy, ensuring that your child's first step into education is filled with wonder.</p>
+                <br>
+                <p>With experienced staff and personal attention, we focus on both Marathi and English medium foundations to prepare your child for a bright future.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-language"></i>
+                    <h4>Marathi & English</h4>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-users"></i>
+                    <h4>Expert Staff</h4>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-heart"></i>
+                    <h4>Personal Care</h4>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-puzzle-piece"></i>
+                    <h4>Activity Hub</h4>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-cloud-sun"></i>
+                    <h4>Playground</h4>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h4>100% Safe</h4>
+                </div>
+            </div>
         </div>
-        <!-- Card B: Study Right -->
-        <div class="program-card">
-          <i class="fas fa-book-open" style="font-size: 2.8rem; color: #a17bdb;"></i>
-          <h3 style="font-size: 2rem;">Study Right Classes</h3>
-          <ul>
-            <li><i class="fas fa-calculator"></i> 1st–10th (English/Maths/Science)</li>
-            <li><i class="fas fa-flask"></i> 11th–12th (Science)</li>
-          </ul>
+    </section>
+
+    <section class="section-padding programs" id="programs">
+        <h2 class="section-title">Our Programs</h2>
+        <div class="program-grid">
+            <div class="program-card">
+                <h3>Pre-Primary</h3>
+                <ul>
+                    <li>Play Group</li>
+                    <li>Nursery</li>
+                </ul>
+            </div>
+            <div class="program-card" style="border-bottom-color: var(--primary-purple);">
+                <h3>Study Right</h3>
+                <ul>
+                    <li>1st – 10th (Eng/Math/Sci)</li>
+                    <li>11th – 12th (Science)</li>
+                </ul>
+            </div>
+            <div class="program-card" style="border-bottom-color: var(--primary-pink);">
+                <h3>Specialized</h3>
+                <ul>
+                    <li>Abacus (5-12 yrs)</li>
+                    <li>Vedic Maths (15+)</li>
+                    <li>Summer Camp & Cooking</li>
+                </ul>
+            </div>
         </div>
-        <!-- Card C: Special Programs -->
-        <div class="program-card">
-          <i class="fas fa-magic" style="font-size: 2.8rem; color: #ee88b2;"></i>
-          <h3 style="font-size: 2rem;">Special Programs</h3>
-          <ul>
-            <li><i class="fas fa-brain"></i> Abacus (5–12 yrs)</li>
-            <li><i class="fas fa-square-root-alt"></i> Vedic Maths (15+)</li>
-            <li><i class="fas fa-campground"></i> Summer Camp</li>
-            <li><i class="fas fa-utensils"></i> Cooking / Baking</li>
-          </ul>
+    </section>
+
+    <section class="section-padding" id="gallery">
+        <h2 class="section-title">Photo Gallery</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1564429234816-29b2fb022c4a?auto=format&fit=crop&w=600" alt="Kids Activities"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=600" alt="Playtime"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1540479859555-17af45c78602?auto=format&fit=crop&w=600" alt="Learning"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=600" alt="Classroom"></div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- GALLERY SECTION with lightbox placeholder -->
-  <section id="gallery">
-    <div class="container">
-      <h2 style="font-size: 3rem; text-align: center;">Happy Moments 📸</h2>
-      <div class="gallery-grid">
-        <!-- gallery items - click opens lightbox -->
-        <a href="#img1" class="gallery-item"><img src="https://placehold.co/600x400/f9d0e0/ff80aa?text=Play+Group" alt="play group" loading="lazy"></a>
-        <a href="#img2" class="gallery-item"><img src="https://placehold.co/600x400/d0e0ff/809bff?text=Outdoor+Play" alt="outdoor" loading="lazy"></a>
-        <a href="#img3" class="gallery-item"><img src="https://placehold.co/600x400/e0c0ff/c28aff?text=Art+Class" alt="art" loading="lazy"></a>
-        <a href="#img4" class="gallery-item"><img src="https://placehold.co/600x400/ffe0b0/ffb347?text=Abacus" alt="abacus" loading="lazy"></a>
-        <a href="#img5" class="gallery-item"><img src="https://placehold.co/600x400/c0f0e0/40b5a0?text=Story+time" alt="story" loading="lazy"></a>
-        <a href="#img6" class="gallery-item"><img src="https://placehold.co/600x400/ffc0cb/e75480?text=Graduation" alt="graduation" loading="lazy"></a>
-      </div>
-    </div>
-    <!-- lightbox overlays -->
-    <div id="img1" class="lightbox"><a href="#" class="close-lightbox">&times;</a><img src="https://placehold.co/600x400/f9d0e0/ff80aa?text=Play+Group" alt="play group"></div>
-    <div id="img2" class="lightbox"><a href="#" class="close-lightbox">&times;</a><img src="https://placehold.co/600x400/d0e0ff/809bff?text=Outdoor+Play"></div>
-    <div id="img3" class="lightbox"><a href="#" class="close-lightbox">&times;</a><img src="https://placehold.co/600x400/e0c0ff/c28aff?text=Art+Class"></div>
-    <div id="img4" class="lightbox"><a href="#" class="close-lightbox">&times;</a><img src="https://placehold.co/600x400/ffe0b0/ffb347?text=Abacus"></div>
-    <div id="img5" class="lightbox"><a href="#" class="close-lightbox">&times;</a><img src="https://placehold.co/600x400/c0f0e0/40b5a0?text=Story+time"></div>
-    <div id="img6" class="lightbox"><a href="#" class="close-lightbox">&times;</a><img src="https://placehold.co/600x400/ffc0cb/e75480?text=Graduation"></div>
-  </section>
+    <section class="section-padding" id="contact">
+        <h2 class="section-title">Admission Enquiry</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Let's Connect!</h3>
+                <p><i class="fa fa-map-marker-alt" style="color: #ffafcc;"></i> Shiv-Hanuman Mandir Javal, Vijaynagar, Sangli</p>
+                <p><i class="fa fa-phone" style="color: #6c5ce7;"></i> +91 7588627645</p>
+                <p><i class="fab fa-whatsapp" style="color: #25D366;"></i> +91 7588627645</p>
+                
+                <div class="map-box">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15274.63467615965!2d74.6067711!3d16.843195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc12306733f38e3%3A0x63319020963d76e3!2sVijaynagar%2C%20Sangli%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1700000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
 
-  <!-- CONTACT + MAP SECTION -->
-  <section id="contact" style="background: #fff0f7; border-radius: 70px 70px 0 0;">
-    <div class="container contact-map-grid">
-      <!-- left: contact details + form -->
-      <div>
-        <h2 style="font-size: 2.5rem;">Let's connect 📞</h2>
-        <p style="font-size: 1.8rem; font-weight: 600;"><i class="fas fa-phone-alt"></i> 7588627645</p>
-        <p style="font-size: 1.2rem; background: white; padding: 1rem 2rem; border-radius: 60px;"><i class="fas fa-map-pin"></i> Shiv-Hanuman Mandir Javal, Vijaynagar, Sangli</p>
-        <h3>Quick enquiry</h3>
-        <form class="enquiry-form" action="#" method="post">
-          <input type="text" placeholder="Parent name" required>
-          <input type="text" placeholder="Child age (e.g. 3 yrs)">
-          <select>
-            <option>Class interested in</option>
-            <option>Play Group</option>
-            <option>Nursery</option>
-            <option>Study Right (1-10)</option>
-            <option>11-12 Science</option>
-            <option>Abacus / Vedic Maths</option>
-            <option>Summer camp</option>
-          </select>
-          <input type="tel" placeholder="Phone number" required>
-          <button type="submit">Submit enquiry <i class="fas fa-paper-plane"></i></button>
-        </form>
-      </div>
-      <!-- right: map placeholder -->
-      <div>
-        <div class="map-placeholder">
-          <div style="text-align: center;">
-            <i class="fas fa-map-marked-alt" style="font-size: 3rem;"></i>
-            <p>📍 Shiv-Hanuman Mandir Javal<br>Vijaynagar, Sangli<br>⬇️ Google Map embed here</p>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4860.321011514982!2d74.5895436!3d16.8570325!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc1237f6c4b1c2d%3A0x68f2b8c6f8c4d8b!2sVijaynagar%2C%20Sangli%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1700000000000" width="100%" height="260" style="border:0; border-radius: 60px;" allowfullscreen="" loading="lazy"></iframe>
-          </div>
+            <form class="enquiry-form" id="waLeadForm">
+                <div class="form-group"><input type="text" id="pName" placeholder="Parent's Name" required></div>
+                <div class="form-group"><input type="number" id="cAge" placeholder="Child's Age" required></div>
+                <div class="form-group">
+                    <select id="cInterest" required>
+                        <option value="">Interested Program</option>
+                        <option value="Pre-Primary (Playgroup/Nursery)">Pre-Primary (Playgroup/Nursery)</option>
+                        <option value="Study Right (1st-12th)">Study Right (1st-12th)</option>
+                        <option value="Abacus / Vedic Maths">Abacus / Vedic Maths</option>
+                        <option value="Summer Camp / Cooking">Summer Camp / Cooking</option>
+                    </select>
+                </div>
+                <div class="form-group"><input type="tel" id="pPhone" placeholder="Mobile Number" required></div>
+                <button type="submit" class="btn btn-wa" style="width: 100%; justify-content: center;">
+                    <i class="fab fa-whatsapp"></i> Submit via WhatsApp
+                </button>
+                <p style="font-size: 0.8rem; text-align: center; margin-top: 15px; opacity: 0.6;">Submit karte hi aapka WhatsApp khul jayega.</p>
+            </form>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <div style="text-align: center;">
-      <h3 style="color: white; font-size: 2.5rem;">KIDS PLANET</h3>
-      <p><i class="fas fa-phone-alt"></i> 7588627645  |  <i class="fab fa-whatsapp"></i> 7588627645</p>
-      <div class="footer-links">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#programs">Programs</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#contact">Contact</a>
-      </div>
-      <div class="copyright">
-        © 2025 KIDS PLANET Pre-Primary School. All rights reserved. | Play • Learn • Grow
-      </div>
-    </div>
-  </footer>
+    <footer>
+        <h2 style="color: var(--primary-blue);">KIDS PLANET</h2>
+        <p>Pre-Primary School • Sangli</p>
+        <div class="footer-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#programs">Programs</a>
+            <a href="#gallery">Gallery</a>
+        </div>
+        <div class="copyright">
+            &copy; 2026 KIDS PLANET – Pre-Primary School. Developed for Trust & Growth.
+        </div>
+    </footer>
 
-  <!-- subtle smooth scroll behavior is global thanks to CSS, add lightweight JS for live year if desired -->
-  <script>
-    (function() {
-      // optional: keep copyright year current
-      document.querySelector('.copyright').innerHTML = document.querySelector('.copyright').innerHTML.replace('2025', new Date().getFullYear());
-    })();
-  </script>
+    <a href="https://wa.me/917588627645" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // --- 1. Sticky Navbar on Scroll ---
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // --- 2. WhatsApp Enquiry Logic ---
+        document.getElementById('waLeadForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Values uthana
+            const name = document.getElementById('pName').value;
+            const age = document.getElementById('cAge').value;
+            const program = document.getElementById('cInterest').value;
+            const phone = document.getElementById('pPhone').value;
+
+            const myMobile = "917588627645"; // Aapka WhatsApp Number
+
+            // Message formatting
+            const text = `*NEW ADMISSION ENQUIRY*%0A` +
+                         `--------------------------%0A` +
+                         `*Parent Name:* ${name}%0A` +
+                         `*Child Age:* ${age}%0A` +
+                         `*Interested In:* ${program}%0A` +
+                         `*Phone:* ${phone}%0A` +
+                         `--------------------------%0A` +
+                         `Hello Kids Planet! I'm interested in admission. Please provide more details.`;
+
+            // WhatsApp Redirect
+            const waUrl = `https://wa.me/${myMobile}?text=${text}`;
+            window.open(waUrl, '_blank').focus();
+        });
+    </script>
+
 </body>
 </html>
