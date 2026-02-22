@@ -168,21 +168,66 @@
 
         /* --- Programs --- */
         .programs { background: #fdfbff; }
-        .program-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .program-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
 
         .program-card {
             background: white;
-            padding: 40px;
+            padding: 40px 30px;
             border-radius: 40px;
             box-shadow: var(--shadow);
             text-align: center;
             border-bottom: 10px solid var(--primary-blue);
             transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
 
         .program-card:hover { transform: scale(1.03); }
-        .program-card ul { list-style: none; margin-top: 20px; }
-        .program-card li { margin: 12px 0; font-weight: 500; font-size: 1.1rem; }
+        .program-card h3 { 
+            font-size: 1.8rem; 
+            margin-bottom: 15px;
+            color: #6c5ce7;
+        }
+        .program-card .age-badge {
+            background: var(--primary-pink);
+            color: #2d3436;
+            padding: 5px 15px;
+            border-radius: 30px;
+            display: inline-block;
+            margin-bottom: 20px;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        .program-card ul { 
+            list-style: none; 
+            margin-top: 15px; 
+            text-align: left;
+            flex-grow: 1;
+        }
+        .program-card li { 
+            margin: 12px 0; 
+            font-weight: 500; 
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .program-card li i {
+            color: #25D366;
+            font-size: 1.2rem;
+            width: 24px;
+        }
+        .program-card .offer-tag {
+            background: #ffafcc;
+            color: #2d3436;
+            padding: 8px 15px;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-top: 20px;
+            display: inline-block;
+        }
 
         /* --- Gallery --- */
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
@@ -326,30 +371,44 @@
     <section class="section-padding programs" id="programs">
         <h2 class="section-title">Our Programs</h2>
         <div class="program-grid">
+            <!-- Daycare Center - New Card -->
+            <div class="program-card" style="border-bottom-color: #ff9f1c;">
+                <h3>Daycare Center</h3>
+                <div class="age-badge">6 months - 12 years</div>
+                <ul>
+                    <li><i class="fas fa-heart"></i> Caring staff</li>
+                    <li><i class="fas fa-broom"></i> Hygienic & safe atmosphere</li>
+                    <li><i class="fas fa-video"></i> Under CCTV observation</li>
+                    <li><i class="fas fa-book-open"></i> Tuition free facilities</li>
+                </ul>
+                <div class="offer-tag">✨ Many more offers for daycare children ✨</div>
+            </div>
+
             <div class="program-card">
                 <h3>Pre-Primary</h3>
                 <ul>
-                    <li>Play Group</li>
-                    <li>Nursery</li>
+                    <li><i class="fas fa-child"></i> Play Group</li>
+                    <li><i class="fas fa-pencil-alt"></i> Nursery</li>
                 </ul>
             </div>
             <div class="program-card" style="border-bottom-color: var(--primary-purple);">
                 <h3>Study Right</h3>
                 <ul>
-                    <li>1st – 10th (Eng/Math/Sci)</li>
-                    <li>11th – 12th (Science)</li>
+                    <li><i class="fas fa-book"></i> 1st – 10th (Eng/Math/Sci)</li>
+                    <li><i class="fas fa-flask"></i> 11th – 12th (Science)</li>
                 </ul>
             </div>
             <div class="program-card" style="border-bottom-color: var(--primary-pink);">
                 <h3>Specialized</h3>
                 <ul>
-                    <li>Abacus (5-12 yrs)</li>
-                    <li>Vedic Maths (15+)</li>
-                    <li>Summer Camp & Cooking</li>
+                    <li><i class="fas fa-calculator"></i> Abacus (5-12 yrs)</li>
+                    <li><i class="fas fa-square-root-alt"></i> Vedic Maths (15+)</li>
+                    <li><i class="fas fa-utensils"></i> Summer Camp & Cooking</li>
                 </ul>
             </div>
         </div>
     </section>
+
 
     <section class="section-padding" id="gallery">
         <h2 class="section-title">Photo Gallery</h2>
@@ -461,6 +520,7 @@
         </div>
     </section>
 
+
     <section class="section-padding" id="contact">
         <h2 class="section-title">Admission Enquiry</h2>
         <div class="contact-container">
@@ -481,6 +541,7 @@
                 <div class="form-group">
                     <select id="cInterest" required>
                         <option value="">Interested Program</option>
+                        <option value="Daycare Center (6 months-12 yrs)">Daycare Center (6 months-12 yrs)</option>
                         <option value="Pre-Primary (Playgroup/Nursery)">Pre-Primary (Playgroup/Nursery)</option>
                         <option value="Study Right (1st-12th)">Study Right (1st-12th)</option>
                         <option value="Abacus / Vedic Maths">Abacus / Vedic Maths</option>
@@ -555,3 +616,16 @@
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+    
